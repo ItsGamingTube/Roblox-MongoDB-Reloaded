@@ -10,6 +10,9 @@
 -- You must have the Frontend installed and working before using the Backend.
 
 
+-- || MUST BE PUT IN A MODULE! || --
+
+
 --[[ Services, Variables & other modules. ]]--
 local HttpService = game:GetService("HttpService")
 local Utility = require(script.Functions.Utility)
