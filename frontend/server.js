@@ -9,6 +9,8 @@ const passwordAuth = process.env.PASSWORD
 const mongoPass = process.env.MONGO_PASS
 const mongoUser = process.env.MONGO_USER
 
+const mongoURL = process.env.MONGO_URL
+
 mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@cluster0.i3et1.gcp.mongodb.net/testing?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 var db = mongoose.connection;
