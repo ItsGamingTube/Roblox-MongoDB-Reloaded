@@ -1,52 +1,60 @@
 # Roblox MongoDB Reloaded
 
-Roblox MongoDB Reloaded is a plugin for Roblox that allows you to interact with your MongoDB databases easily!
+A NodeJS app for Roblox that allows you to interact with your MongoDB databases easily!
 
-All features:
-- Up to 200% faster than other MongoDB plugins
-- Easy to setup
-- Password protection
-- Low resource usage (RAM, CPU, Disk)
-- Similar to Datastore v2
-- Repl.it and Heroku compatible
-- No data loss on leave
-- Multiple connections support
-- Multiple server locations support
-- Free to use
-- Customizable API
-- Free support included
+### Features:
+- Up to 200x better than most plugins.
+- Beginner Friendly.
+- Password Protection: Keep your database safe.
+- Extremely low resource consumption (RAM, CPU, Disk).
+- Similar to Datastore v2.
+- Repl.it, Heroku, Glitch and Shared Hosting compatible.
+- No Data Loss on leave.
+- Multiple connections support.
+- Multiple server locations support.
+- Free to use forever.
+- Customizable API.
+- Free support included.
 
 ## Frontend Installation
 
-The Frontend is used to host the API connector on a Node.JS server.
-To get started, download the latest Roblox MongoDB Reloaded version from our website or from our github page and install the required packages using the package manager, [npm](https://www.npmjs.com/).
+The Frontend is used to host the API on a NodeJS server, so later we can send POST and GET requests on the server. You will need a NodeJS hosting such as Repl.it (Free), Heroku (Free), Glitch (Free), or any other compatible hosting before continuing.
+
+To get started, download the latest Roblox MongoDB Reloaded version from our website or from the Github page, unzip the file (using 7ZIP), upload the unziped files on the server and install the required packages using the package manager, [npm](https://www.npmjs.com/).
 ```bash
 npm install
 ```
 
 ### Configuration
 
-To configure the Frontend, you must have env installed.
+Before configuring the Frontend, you must have env installed on your hosting. If you don't have it pre-installed, install it using the npm package manager (see tutorials on Youtube).
 
 Here is a template that you can use for your Frontend configuration:
 ```json
 {
-  "MONGO_PASS": "your database password",
-  "MONGO_USER": "your database user",
-  "PASSWORD": "auth password",
-  "USERNAME": "auth user"
+  "MONGO_PASS": "MongoDB Datababse password",
+  "MONGO_USER": "MongoDB Datababse user",
+  "MONGO_URL": "MongoDB Database URL",
+  "MONGO_DB_Name": "MongoDB Database Name",
+  "PASSWORD": "Authentication password",
+  "USERNAME": "Authentication user"
+  "PORT": "Authentication user"
 }
 ```
 
-After the first step is done, change the database url in the server.js file at line 12.
+MONGO_PASS = (Example: mysecretpassworddatabase) Your database's password, instructions can be found on the software's website or on your hosting provider website. 
 
-```java
-mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@cluster0.ljtru.mongodb.net/gameDatabase?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
-```
-If using MongoDB Atlas, just change the server url after ${mongoPass}@ and the database name.
-If using an external database, replace the whole connection url with the suitable connection url.
+MONGO_USER = (Example: adminuser) Your database's user, instructions can be found on the software's website or on your hosting provider website. 
 
-Finally, if required, change the port in the main file (server.js) at the line 44.
+MONGO_URL = (Example: cluster0.i3et1.gcp.mongodb.net) Your database's URL used to connect, instructions can be found on the software's website or on your hosting provider website. 
+
+MONGO_DB_Name = (Example: coinsdb01) Your database's Name. 
+
+PASSWORD = (Example: mysecretapipassword) Password used for Authentication. 
+
+USERNAME = (Example: rootuserapi) Username used for Authentication. 
+
+PORT = (Default: 3000) Changes on which port the app runs. Only change if you know what you are doing.
 
 ## Backend Installation
 
@@ -60,7 +68,7 @@ After downloaing the Backend files, put the main module into ServerScriptService
 ## Usage
 
 ```lua
-local Db01 = require(script.Parent.MongoDBService)
+local MongoReloaded = require(script.Parent.MongoDBService)
 local players = game.Players
 
 players.PlayerAdded:Connect(function(plr)
@@ -76,7 +84,7 @@ end)
 
 ### Methods:
 ```bash
-Rmc:GetStore("StoreName", playerInstance)
+MongoReloaded:GetStore("StoreName", playerInstance)
 ```
 Creates or gets an existing store, for using the :Get and :Set methods.
 
@@ -92,6 +100,8 @@ This method accepts the value to update in the store.
 
 You don’t need to do anything for saving actually, everything is done internally in module .
 
+### AntiExploit
+We made this project with security in mind. That's why the module is stored in ServerScriptService. However, exploiters can still find ways to exploit it. We update the plugin regulary, but you can also make your own anti exploit for additional protection.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
