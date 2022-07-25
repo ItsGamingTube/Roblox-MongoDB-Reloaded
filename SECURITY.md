@@ -12,4 +12,4 @@ Node.JS:
 
 ## Reporting a Vulnerability
 
-To report a vulnerability open up an issue or contact us on our help desk.
+To report a vulnerability open up an issue.
