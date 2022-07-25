@@ -1,6 +1,6 @@
 {
   "name": "roblox-mongodb-reloaded",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Roblox MongoDB Reloaded is a plugin for Roblox that allows you to interact with your MongoDB databases easily!",
   "main": "index.js",
   "scripts": {
