@@ -10,8 +10,11 @@ const mongoPass = process.env.MONGO_PASS
 const mongoUser = process.env.MONGO_USER
 
 const mongoURL = process.env.MONGO_URL
+const mongoDBName = process.env.MONGO_DB_Name
 
-mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@cluster0.i3et1.gcp.mongodb.net/testing?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
+const Port = process.env.PORT
+
+mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@${mongoURL}/${mongoDBName}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 var db = mongoose.connection;
 
@@ -43,7 +46,7 @@ app.use((req, res, next) => {
 require('./API/routes')(app);
 
 // Make the app listen to the port defined below.
-const PORT = 3000
+const PORT = ${PORT}
 app.listen(PORT, () => {
     console.log("> App Listening on port", PORT)
 })
